@@ -5,7 +5,7 @@
 )]
 #![deny(missing_docs, warnings)]
 // Don't fail on links to things not enabled in features
-#![allow(unknown_lints, intra_doc_link_resolution_failure)]
+#![allow(unknown_lints, rustdoc::broken_intra_doc_links)]
 
 //! Library for easier and safe Unix signal handling
 //!

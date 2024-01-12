@@ -305,11 +305,11 @@ fn block_signal(signal: c_int) -> Result<sigset_t, Error> {
         // MaybeUninit is new and not supported by all the rustc's we want to support. Furthermore,
         // sigset_t is a C type anyway and rust limitations should not apply to it, right?
         #[allow(deprecated)]
-        let mut newsigs: sigset_t = mem::uninitialized();
+        let mut newsigs: sigset_t = mem::zeroed();
         libc::sigemptyset(&mut newsigs);
         libc::sigaddset(&mut newsigs, signal);
         #[allow(deprecated)]
-        let mut oldsigs: sigset_t = mem::uninitialized();
+        let mut oldsigs: sigset_t = mem::zeroed();
         libc::sigemptyset(&mut oldsigs);
         if libc::sigprocmask(SIG_BLOCK, &newsigs, &mut oldsigs) == 0 {
             Ok(oldsigs)

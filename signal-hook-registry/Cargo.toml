@@ -19,7 +19,7 @@ maintenance = { status = "actively-developed" }
 
 [dependencies]
 arc-swap = "~0.4"
-libc = "~0.2"
+libc = { git = "https://github.com/wasix-org/libc.git", branch = "v0.2.152" }
 
 [dev-dependencies]
 version-sync = "~0.8"
